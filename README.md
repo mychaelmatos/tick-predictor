@@ -34,12 +34,6 @@ Altere só o que for diferente no seu MySQL:
 | `DB_HOST` e `DB_PORT` | Só mude se o MySQL não estiver nesta máquina ou não usar a porta 3306. |
 | `DB_DATABASE` | Nome do banco. Não precisa criar antes: o setup cria. |
 
-Exemplo com senha `minhasenha`:
-
-```dotenv
-DB_PASSWORD=minhasenha
-```
-
 O resto do `.env` não precisa mudar. Depois:
 
 ```bash
@@ -61,4 +55,4 @@ composer run test
 
 **Saldo.** Os valores ficam em centavos inteiros. A aposta debita o saldo dentro de uma transação com a carteira travada (`lockForUpdate`), então dois cliques ao mesmo tempo não deixam o saldo negativo. Só é permitida uma aposta aberta por vez. O prêmio é creditado da mesma forma, e uma aposta nunca é paga duas vezes.
 
-**Ticks.** O navegador se conecta ao WebSocket da Deriv apenas para exibir o preço e o gráfico. Quem decide o resultado é o backend: ele busca na Deriv o tick de entrada e o 5º tick seguinte, compara os dois e grava os ticks usados na aposta. O endpoint indicado no enunciado está fora do ar, então o projeto usa o endpoint público atual, `wss://api.derivws.com/trading/v1/options/ws/public`.
+**Ticks.** O navegador se conecta ao WebSocket da Deriv apenas para exibir o preço e o gráfico. Quem decide o resultado é o backend: ele busca na Deriv o tick de entrada e o 5º tick seguinte, compara os dois e grava os ticks usados na aposta. O endpoint usad: `wss://api.derivws.com/trading/v1/options/ws/public`.
