@@ -55,4 +55,4 @@ composer run test
 
 **Saldo.** Os valores ficam em centavos inteiros. A aposta debita o saldo dentro de uma transação com a carteira travada (`lockForUpdate`), então dois cliques ao mesmo tempo não deixam o saldo negativo. Só é permitida uma aposta aberta por vez. O prêmio é creditado da mesma forma, e uma aposta nunca é paga duas vezes.
 
-**Ticks.** O navegador se conecta ao WebSocket da Deriv apenas para exibir o preço e o gráfico. Quem decide o resultado é o backend: ele busca na Deriv o tick de entrada e o 5º tick seguinte, compara os dois e grava os ticks usados na aposta. O endpoint usad: `wss://api.derivws.com/trading/v1/options/ws/public`.
+**Ticks.** O navegador se conecta ao WebSocket da Deriv apenas para exibir o preço e o gráfico. Quem decide o resultado é o backend: ele busca na Deriv o tick de entrada e o 5º tick seguinte, compara os dois e grava os ticks usados na aposta. O endpoint usado: `wss://api.derivws.com/trading/v1/options/ws/public`.
