@@ -6,31 +6,29 @@ Laravel 12 · Inertia · Vue 3 · Tailwind · MySQL
 
 ## Como rodar
 
-Requisitos: PHP 8.2+, Composer, Node 18+ e MySQL. Tenha um banco MySQL vazio criado.
+Requisitos: PHP 8.2+, Composer, Node 18+ e MySQL.
 
 ```bash
 git clone https://github.com/mychaelmatos/tick-predictor.git
 cd tick-predictor
-composer install
-npm install
 cp .env.example .env
-php artisan key:generate
 ```
 
-No `.env`, preencha `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD` com os dados do seu banco. Depois:
+No `.env`, coloque o usuário e a senha do seu MySQL em `DB_USERNAME` e `DB_PASSWORD`. Depois:
 
 ```bash
-php artisan migrate --seed
-npm run build
+composer run setup
 php artisan serve
 ```
+
+O `setup` instala as dependências, cria o banco `tick_predictor`, as tabelas e a conta de teste, e compila o frontend.
 
 Acesse http://localhost:8000 e clique em **Entrar com a conta de teste**. A conta é `teste@exemplo.com`, senha `teste1234`. Toda conta começa com R$ 1.000,00 fictícios.
 
 Para rodar os testes:
 
 ```bash
-php artisan test
+composer run test
 ```
 
 ## Decisões
