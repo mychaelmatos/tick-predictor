@@ -14,7 +14,33 @@ cd tick-predictor
 cp .env.example .env
 ```
 
-No `.env`, coloque o usuário e a senha do seu MySQL em `DB_USERNAME` e `DB_PASSWORD`. Depois:
+Abra o arquivo `.env` e encontre este bloco:
+
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=tick_predictor
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Altere só o que for diferente no seu MySQL:
+
+| Linha | O que colocar |
+|---|---|
+| `DB_USERNAME` | Usuário do seu MySQL. Já vem `root`. |
+| `DB_PASSWORD` | Senha desse usuário. Se o seu root não tem senha, deixe vazio. |
+| `DB_HOST` e `DB_PORT` | Só mude se o MySQL não estiver nesta máquina ou não usar a porta 3306. |
+| `DB_DATABASE` | Nome do banco. Não precisa criar antes: o setup cria. |
+
+Exemplo com senha `minhasenha`:
+
+```dotenv
+DB_PASSWORD=minhasenha
+```
+
+O resto do `.env` não precisa mudar. Depois:
 
 ```bash
 composer run setup
